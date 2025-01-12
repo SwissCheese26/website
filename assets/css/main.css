@@ -71,10 +71,26 @@ input, select, textarea {
 	-ms-appearance: none;
 	appearance: none;
 }
+.photoMe {
+    width: 400px;
+    height: 500px;
+}
 
-.photoMe{
-	width: 400px;
-	height: 500px;
+/* Medienabfrage für Handys */
+@media screen and (max-width: 600px) {
+    .photoMe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/* Medienabfrage für Handys */
+@media screen and (max-width: 600px) {
+    .logo {
+		width: 100%;
+        height: auto;
+    }
 }
 
 
@@ -193,6 +209,7 @@ input, select, textarea {
 		letter-spacing: 0.075em;
 		text-transform: uppercase;
 		margin: 0 0 1rem 0;
+		word-break: break-word;
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
