@@ -11,7 +11,50 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
+		<style>
+			/* Modal Styles */
+			.modal {
+				display: none; /* Standardmäßig ist die Modal unsichtbar */
+				position: fixed; 
+				z-index: 1050; /* Erhöhen des Z-Index */
+				left: 0;
+				top: 0;
+				width: 100%; 
+				height: 100%; 
+				overflow: auto; 
+				background-color: rgba(0,0,0,0.5); 
+				justify-content: center;
+				align-items: center;
+			}
+			
+			.modal-content {
+				background-color: #fff;
+				margin: 15% auto; 
+				padding: 20px; 
+				border: 1px solid #888;
+				width: 80%; 
+				max-width: 400px;
+				text-align: center;
+				box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+				position: relative; /* Wichtig: damit der X-Button im selben Block bleibt */
+			}
+			
+			.close {
+				color: #aaa;
+				position: absolute;
+				right: 20px;
+				top: 20px;
+				font-size: 28px;
+				font-weight: bold;
+				cursor: pointer;
+			}
+			
+			.close:hover {
+				color: #000;
+			}
+			
+			
+					</style>
 	</head>
 	
 
@@ -25,16 +68,26 @@
 				
 				</header>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li><a href="index.html">Arthur Reznikov</a></li>
-							<li class="active"><a href="generic.html">About me</a></li>
-							<li><a href="skills.html">Skills</a></li>
-						</ul>
-					
-					</nav>
-
+				<nav id="nav">
+                    <ul class="links">
+                        <li><a href="index.html">Arthur Reznikov</a></li>
+                        <li class="active"><a href="generic.html">About me</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li>
+                            <a href="#" id="downloadCV">Download CV</a>
+                        </li>
+                    </ul>
+                </nav>
+  <!-- The Modal -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Select CV Language</h2>
+      <p>Do you want to download the CV in:</p>
+      <button id="downloadGerman">German</button>
+      <button id="downloadEnglish">English</button>
+    </div>
+</div>
 				<!-- Main -->
 					<div id="main">
 
@@ -129,6 +182,40 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+                // Get the modal
+                var modal = document.getElementById("cvModal");
+            
+                // Get the button that opens the modal
+                var btn = document.getElementById("downloadCV");
+            
+                // Get the span that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+            
+                // Get download buttons
+                var downloadGerman = document.getElementById("downloadGerman");
+                var downloadEnglish = document.getElementById("downloadEnglish");
+            
+                // When the user clicks on the button, open the modal 
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+            
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            
+                // When the user clicks on download German, redirect
+                downloadGerman.onclick = function() {
+                    window.location.href = 'https://github.com/SwissCheese26/arr-cv/raw/main/ArthurReznikov_CV.pdf';
+                }
+            
+                // When the user clicks on download English, redirect
+                downloadEnglish.onclick = function() {
+                    window.location.href = 'https://github.com/SwissCheese26/arr-cv/raw/main/ArthurReznikov_CV_English.pdf';
+                }
+            </script>
+            
 	</body>
 </html>
