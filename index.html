@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthur Reznikov | Portfolio</title>
+    <meta name="description" content="Personal Portfolio of Arthur Reznikov – Developer, Producer, Photographer">
+    <meta name="author" content="Arthur Reznikov">
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Deine lokale CSS-Datei -->
+    <link rel="stylesheet" href="assets/styles/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-brand">Arthur Reznikov</div>
+        <div class="nav-controls">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <span id="clock">--:--</span>
+            <a href="#" class="cv-button" id="cvButton">
+                <i class="fas fa-file-download"></i>
+                <span class="cv-text">CV</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Welcome Card -->
+        <div class="card">
+            <h3>My Portfolio</h3>
+            <p>Thanks for taking your time and being here. Welcome!</p>
+         <div class="image-container">
+    <img src="assets/img/lifestyle.jpg" alt="Lifestyle" class="blur-image">
+     <!-- Quelle hinzufügen falls benötigt -->
+</div>
+        </div>
+
+        <!-- Topics -->
+        <div class="card">
+            <p>Pick your topic:</p>
+            <div class="topic-grid">
+                <button class="topic-btn" onclick="showTopic('Career')">Career</button>
+                <button class="topic-btn" onclick="showTopic('AboutMe')">About Me</button>
+                <button class="topic-btn" onclick="showTopic('Photography')">Photography</button>
+              <button class="topic-btn" onclick="showTopic('Goals')">Goals & QA</button>
+            </div>
+        </div>
+
+   <!-- Career Content -->
+<div id="Career" class="topic-content card" style="display:none;">
+    <div class="career-section">
+        <h3>Job training / Ausbildung zum Anwendungsentwickler</h3>
+        <h4>Since November 01, 2023</h4>
+        <p>I am a dedicated Frontend Developer currently in training at ONTIV GmbH, where I work on a variety of exciting projects. In my role, I build, modify, and debug customer-facing views using Angular 18, always focusing on clean code and excellent user experiences. I work closely with the MVC architecture and use C# to fix issues and support backend logic. Additionally, I write Unit Tests using .NET and C# to ensure code quality.</p>
+        <p>I have extensive experience working with databases and frequently use HeidiSQL, Docker, and Artificial Intelligence. For frontend development, I utilize various frameworks and technologies, including Bootstrap, Angular Material, and more. In my daily work, I use languages such as C#, TypeScript, HTML5, CSS3, CSHTML, and occasionally VB. My goal is to continuously enhance my skills and create innovative, user-friendly solutions that combine both functionality and aesthetics.</p>
+    </div>
+
+    <div class="career-section">
+        <h3>Vocational Qualification in Computer Science & IT Specialist (Fachabitur Informatik & ITA Ausbildung)</h3>
+        <h4>August 23, 2021</h4>
+        <p>In the two years at BBS Betzdorf-Kirchen, I have learned countless theoretical concepts in IT. Whether it's programming in Processing (Java), HTML, and CSS, or C#, we covered the basics of cybersecurity, networking, databases, and much more.</p>
+        <p>During my time at BBS Betzdorf, I gained a solid foundation in various areas of IT:</p>
+        <ul class="skills-list">
+            <li><strong>Java (Processing):</strong> Focused on graphical programming.</li>
+            <li><strong>Frontend Development:</strong> Basics of HTML and CSS.</li>
+            <li><strong>Networking:</strong> Introduction to network infrastructure and protocols.</li>
+            <li><strong>Databases:</strong> Initial experience with relational databases and SQL.</li>
+            <li><strong>Microsoft Office:</strong> Certified course for efficient use of Office programs.</li>
+            <li><strong>Object-Oriented Programming (OOP):</strong> Practical implementation with C# .NET.</li>
+            <li><strong>Hardware Basics:</strong> Knowledge of PC components and their functionality.</li>
+        </ul>
+        <p><strong>Final Project:</strong></p>
+        <p><strong>Development of an RFID time tracking system:</strong></p>
+        <p>The RFID chip was scanned by a reader. The recorded status was displayed with a timestamp on a custom-built webpage.</p>
+    </div>
+
+    <div class="career-section">
+        <h3>Intership / Praktikum</h3>
+        <h4>August 23, 2021</h4>
+        <p>During my 16-week internship at Hoppmann Autowelt GmbH as a system integrator, which I voluntarily extended by two additional weeks, I gained a different perspective on IT. Instead of sitting in front of a computer, I replaced PCs, toner, or even entire printers. My main task was to support the IT team by taking over some of their responsibilities. When I worked on software-related tasks, such as writing a script in Batch, I found it far more enjoyable. This led me to decide to pursue a career in software development after school instead of focusing on hardware.</p>
+        <p>My internship as an IT systems integration specialist provided valuable hands-on experience:</p>
+        <ul class="skills-list">
+            <li><strong>Hardware Knowledge:</strong> Replacement and maintenance of PC components.</li>
+            <li><strong>Building PCs:</strong> Both during the internship and in personal projects.</li>
+        </ul>
+    </div>
+
+    <div class="career-section">
+        <h3>Personal Projects</h3>
+        <ul class="skills-list">
+            <li><strong>Operating Systems:</strong> Primarily work with Windows, occasionally with macOS and Linux (e.g., Kali Linux, Ubuntu).</li>
+            <li><strong>App Development:</strong> First steps with Swift, such as creating a small weather app for the iPhone.</li>
+            <li><strong>Programming:</strong> Started with Python for small scripts, which was my first programming language.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Photography Content -->
+<div id="Photography" class="topic-content card" style="display:none;">
+    <h3>Pictures</h3>
+    <div class="photo-grid">
+        <!-- Bild 1 mit Lightbox -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_0426.jpeg', 'Druidenstein, Germany')">
+            <img src="assets/img/travelingImgs/IMG_0426.jpeg" alt="Druidenstein, Germany" loading="lazy">
+            <p>📍Druidenstein, Germany</p>
+        </div>
+        
+        <!-- Bild 2 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_1122.jpeg', 'Middleburg, Netherlands')">
+            <img src="assets/img/travelingImgs/IMG_1122.jpeg" alt="Middleburg, Netherlands" loading="lazy">
+            <p>📍Middleburg, Netherlands</p>
+        </div>
+        
+        <!-- Bild 3 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_1144.jpeg', 'Grijpskerke, Netherlands')">
+            <img src="assets/img/travelingImgs/IMG_1144.jpeg" alt="Grijpskerke, Netherlands" loading="lazy">
+            <p>📍Grijpskerke, Netherlands</p>
+        </div>
+        
+        <!-- Bild 4 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_1744.jpeg', 'Primošten, Croatia')">
+            <img src="assets/img/travelingImgs/IMG_1744.jpeg" alt="Primošten, Croatia" loading="lazy">
+            <p>📍Primošten, Croatia</p>
+        </div>
+        
+        <!-- Bild 5 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_2912.jpeg', 'Rheinfall, Switzerland')">
+            <img src="assets/img/travelingImgs/IMG_2912.jpeg" alt="Rheinfall, Switzerland" loading="lazy">
+            <p>📍Rheinfall, Switzerland</p>
+        </div>
+        
+        <!-- Bild 6 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_6104.jpeg', 'Cologne, Germany')">
+            <img src="assets/img/travelingImgs/IMG_6104.jpeg" alt="Cologne, Germany" loading="lazy">
+            <p>📍Cologne, Germany</p>
+        </div>
+        
+        <!-- Bild 7 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_8155.jpeg', 'Kamperland, Netherlands')">
+            <img src="assets/img/travelingImgs/IMG_8155.jpeg" alt="Kamperland, Netherlands" loading="lazy">
+            <p>📍Kamperland, Netherlands</p>
+        </div>
+        
+        <!-- Bild 8 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_8669.jpeg', 'Pisa, Italy')">
+            <img src="assets/img/travelingImgs/IMG_8669.jpeg" alt="Pisa, Italy" loading="lazy">
+            <p>📍Pisa, Italy</p>
+        </div>
+        
+        <!-- Bild 9 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_8689.jpeg', 'Cinque Terre, Italy')">
+            <img src="assets/img/travelingImgs/IMG_8689.jpeg" alt="Cinque Terre, Italy" loading="lazy">
+            <p>📍Cinque Terre, Italy</p>
+        </div>
+        
+        <!-- Bild 10 -->
+        <div class="photo-item" onclick="openLightbox('assets/img/travelingImgs/IMG_9714.jpeg', 'Herkersdorf, Germany')">
+            <img src="assets/img/travelingImgs/IMG_9714.jpeg" alt="Herkersdorf, Germany" loading="lazy">
+            <p>📍Herkersdorf, Germany</p>
+        </div>
+    </div>
+</div>
+    <!-- Neuer Content-Bereich -->
+<div id="Goals" class="topic-content card" style="display:none;">
+  <h3>Goals & Life Plans — Interview</h3>
+
+  <p>
+    Setting clear goals and continuously striving to improve is very important to me.  
+    In this interview, I share my professional ambitions, personal visions, and how I plan to grow in the coming years.
+  </p>
+
+  <div class="accordion-section">
+    <button class="accordion-button" aria-expanded="false">Q: What are your most important professional goals for the next 3–5 years?</button>
+    <div class="accordion-content">
+      <p>A: In the next 3 to 5 years, I aim to learn as much as possible and continuously expand my knowledge. It is important to me to explore and understand various technologies and techniques in order to work flexibly and competently. My goal is to find a position in Switzerland, as I highly value the professional opportunities there and can imagine living there long-term.</p>
+    </div>
+  </div>
+
+  <div class="accordion-section">
+    <button class="accordion-button" aria-expanded="false">Q: Where do you want to live, and why?</button>
+    <div class="accordion-content">
+   <p>A: I want to live in Switzerland or at least in my homeland, Baden-Württemberg. Although I currently live in NRW, I miss the south every day. I grew up there, my family lives there (in Switzerland and Baden-Württemberg), and that is where I feel at home. However, I would also be open to living in Rheinland-Pfalz or Hessen, as I have no problem with those regions.</p>
+
+    </div>
+  </div>
+
+  <div class="accordion-section">
+    <button class="accordion-button" aria-expanded="false">Q: What kinds of work interest you the most, and what skills do you want to improve?</button>
+    <div class="accordion-content">
+      <p>A: I enjoy working in web development but have no problem exploring new directions. I'm also interested in Geo-IT and cybersecurity. What I want to improve most is my understanding of new things and technologies.</p>
+    </div>
+  </div>
+
+  <div class="accordion-section">
+    <button class="accordion-button" aria-expanded="false">Q: What makes a workplace ideal for you?</button>
+    <div class="accordion-content">
+      <p>A: For me, feeling comfortable in my environment is crucial — both where I live and at work. You can't put it into numbers, but if the work is fun and you learn new things, time flies and you can naturally work more. I also really appreciate flexible working hours, as some days I prefer to work shorter and other days longer.</p>
+    </div>
+  </div>
+
+  <div class="accordion-section">
+    <button class="accordion-button" aria-expanded="false">Q: Do you have a specific project in mind you want to work on?</button>
+    <div class="accordion-content">
+      <p>A: I don’t have one specific project in mind because every project is unique in its own way. I simply want to support the company and future team by lending a hand. I want to realize customer projects and receive feedback.</p>
+    </div>
+  </div>
+</div>
+
+
+
+     <!-- About Me Content -->
+<div id="AboutMe" class="topic-content card" style="display:none;">
+    <div class="about-section">
+        <h3>About me</h3>
+        <p>I was born on February 26, 2004, in Waldshut-Tiengen, located in the Hochrhein region of Baden-Württemberg. Due to my father's new job, our family moved to Donaueschingen in the Black Forest. I spent my childhood and teenage years there until I turned 16, attending the Realschule Donaueschingen up to the 10th grade. Due to personal conflicts, I relocated to Siegen, about a four-hour drive north. There, I completed my secondary education at the Realschule am Oberen Schloss.</p>
+        
+        <div class="image-container">
+            <img src="assets/img/Karte-Waldshut-Tiengen-174056.png" alt="Waldshut-Tiengen Map" class="about-image">
+            <p class="image-caption">Source: <a href="https://www.stepmap.de/landkarte/karte-waldshut-tiengen-RSWOcVRz6C-i" target="_blank">stepmap.de</a></p>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h3>Education</h3>
+        <p>After my experiences in Siegen, I decided to pursue further education instead of immediately entering an apprenticeship. I enrolled at the BBS Betzdorf-Kirchen, where I had some of the best years of my academic journey. The supportive teachers and friendly classmates made this time unforgettable, and I remain in contact with many of them to this day.</p>
+        <p class="source-link">Photo: <a href="https://www.bbs-betzdorf-kirchen.de/newsreader/entlassfeier-hbfi-fstm-2.html" target="_blank">BBS Betzdorf-Kirchen</a></p>
+    </div>
+
+    <div class="about-section">
+        <h3>Spoken Languages</h3>
+        <ul class="languages-list">
+            <li><i class="fas fa-check-circle"></i> <strong>German</strong> (Native)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>English</strong> (Fluent)</li>
+            <li><i class="fas fa-check-circle"></i> <strong>Russian</strong> (Basic)</li>
+        </ul>
+    </div>
+
+    <div class="about-section">
+        <h3>Personal Interests</h3>
+        <div class="interests-grid">
+            <div class="interest-item">
+                <i class="fas fa-globe-europe"></i>
+                <h4>Geography</h4>
+                <p>I enjoy learning about capitals, flags, and world cultures.</p>
+            </div>
+            <div class="interest-item">
+                <i class="fas fa-plane"></i>
+                <h4>Traveling</h4>
+                <p>Whether it's a short day trip or a longer journey, I love exploring new places.</p>
+            </div>
+            <div class="interest-item">
+                <i class="fas fa-camera"></i>
+                <h4>Photography</h4>
+                <p>Capturing moments through my lens is a hobby I cherish.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- In einer Ecke fixiert -->
+<div class="legal-links">
+    <a href="impressum.html">Impressum</a>
+</div>
+
+        <!-- CV Modal -->
+        <div id="cvModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Select Language</h3>
+                <div class="modal-buttons">
+                    <a href="https://github.com/SwissCheese26/arr-cv/raw/main/ArthurReznikov_CV.pdf" 
+           download="ArthurReznikov_CV_Deutsch.pdf" class="topic-btn">Deutsch 🇩🇪</a>
+                    <a href="https://github.com/SwissCheese26/arr-cv/raw/main/ArthurReznikov_CV_English.pdf"  download="ArthurReznikov_CV_English.pdf" class="topic-btn">English 🇬🇧</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+ 
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        function setTheme(isDark) {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        // Theme aus LocalStorage oder Systemeinstellung laden
+        const savedTheme = localStorage.getItem('theme') || 
+                          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        setTheme(savedTheme === 'dark');
+        themeToggle.addEventListener('click', () => setTheme(document.documentElement.getAttribute('data-theme') === 'light'));
+
+        // Topic Navigation
+        function showTopic(topicId) {
+            document.querySelectorAll('.topic-content').forEach(el => el.style.display = 'none');
+            document.getElementById(topicId).style.display = 'block';
+            window.scrollTo({ top: document.getElementById(topicId).offsetTop - 80, behavior: 'smooth' });
+        }
+
+        // CV Modal
+       // Ersetze deine bestehende Modal-Logik durch diesen Code:
+document.getElementById('cvButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('cvModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Verhindert Scrollen
+});
+
+document.querySelector('.close-modal').addEventListener('click', function() {
+    document.getElementById('cvModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+});
+
+window.addEventListener('click', function(e) {
+    if (e.target === document.getElementById('cvModal')) {
+        document.getElementById('cvModal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+});
+
+        // Clock
+        function updateClock() {
+            const now = new Date();
+            document.getElementById('clock').textContent = 
+                `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+        }
+        setInterval(updateClock, 60000);
+        updateClock();
+
+
+// Lightbox Funktionen
+function openLightbox(imageSrc, caption) {
+    const overlay = document.getElementById('lightbox-overlay');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    
+    lightboxImage.src = imageSrc;
+    lightboxCaption.textContent = caption;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Scrollen verhindern
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox-overlay').style.display = 'none';
+    document.body.style.overflow = 'auto'; // Scrollen erlauben
+}
+
+// Schließen mit ESC-Taste
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+
+  const buttons = document.querySelectorAll('.accordion-button');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', !expanded);
+      
+      const content = button.nextElementSibling;
+      content.classList.toggle('open');
+    });
+  });
+
+
+    </script>
+
+   <div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-image" src="" alt="Vergrößerte Ansicht">
+        <div id="lightbox-caption"></div>
+    </div>
+</div>
+</div>
+</body>
+</html>
