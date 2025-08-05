@@ -1,0 +1,661 @@
+        :root {
+            /* Light Mode Defaults */
+            --bg-primary: #f8f9fa;
+            --text-primary: #2c3e50;
+            --accent: #4a6fa5;
+            --navbar-bg: #2c3e50;
+            --card-bg: #ffffff;
+               --text-secondary: #6c757d; /* Für Bildunterschriften */
+    --card-bg-light: #f0f0f0; /* Für Interest-Items im Light Mode */
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        [data-theme="dark"] {
+            --bg-primary: #121212;
+            --text-primary: #e0e0e0;
+            --navbar-bg: #1a1a1a;
+            --card-bg: #1e1e1e;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background 0.3s, color 0.2s;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+        /* Navbar */
+        .navbar {
+            background: var(--navbar-bg);
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .theme-toggle, .lang-btn {
+            background: transparent;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+        .theme-toggle:hover, .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .lang-btn.active {
+            background: var(--accent);
+        }
+        #clock {
+            font-family: monospace;
+        }
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        /* Topic Buttons */
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .topic-btn {
+            background: var(--navbar-bg);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+
+              transform: translateY(0);
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+.topic-btn:active {
+    transform: translateY(2px);
+}
+
+        .topic-btn:hover {
+            transform: translateY(-3px);
+            background: var(--accent);
+        }
+        /* Images */
+        .image-card {
+            position: relative;
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: filter 0.5s ease;
+            filter: blur(3px);
+        }
+        .image-card:hover img {
+            filter: blur(0);
+        }
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+        }
+
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+      
+        /* Responsive */
+     /* Mobile Optimierung für die Bilder und Captions */
+@media (max-width: 768px) {
+    .photo-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .photo-item img {
+        width: 100%;
+        max-width: 300px; /* Begrenzt die maximale Bildbreite */
+        height: auto;
+        border-radius: 8px;
+    }
+    
+    .photo-item p {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+        margin-top: 0.3rem;
+        white-space: normal; /* Verhindert Zeilenumbruch-Probleme */
+        overflow: visible;
+    }
+    
+    /* Für die Lifestyle-Bild-Sektion */
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .image-caption {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+}
+
+        /* Image Grid für Photography */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+.photo-item img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+.photo-item img:hover {
+    transform: scale(1.02);
+}
+
+/* Career Section Styles */
+.career-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.career-section:last-child {
+    border-bottom: none;
+}
+
+.skills-list {
+    margin: 1rem 0 1rem 1.5rem;
+    list-style-type: square;
+}
+
+.skills-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Dark Mode Anpassungen */
+[data-theme="dark"] .career-section {
+    border-bottom-color: #333;
+}
+
+[data-theme="dark"] .about-section {
+    border-bottom-color: #333;
+}
+
+
+[data-theme="dark"] .skills-list li::marker {
+    color: var(--accent);
+}
+
+[data-theme="dark"] .interest-item {
+    background: #252525;
+}
+/* About Me Styles */
+.about-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.about-section:last-child {
+    border-bottom: none;
+}
+
+.about-image {
+    width: 100%;
+    border-radius: 8px;
+    margin: 1rem 0;
+    box-shadow: var(--shadow);
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: -0.5rem;
+}
+
+.languages-list {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.languages-list li {
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.languages-list i {
+    color: var(--accent);
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.interest-item {
+    background: var(--card-bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.interest-item:hover {
+    transform: translateY(-5px);
+}
+
+.interest-item i {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+/* Stil für alle Bildbeschriftungen */
+.image-container {
+    margin: 1.5rem 0;
+    position: relative;
+}
+
+.image-caption {
+    display: block;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+[data-theme="dark"] .image-caption {
+    border-top-color: rgba(255,255,255,0.1);
+    color: #aaa;
+}
+
+/* Optional: Abstand zwischen Bild und Linie */
+.blur-image {
+    margin-bottom: 0.3rem;
+}
+
+/* Speziell nur für das Lifestyle-Bild */
+.lifestyle-image-wrapper {
+    display: table;         /* Macht Container so breit wie Inhalt */
+    margin: 1.5rem auto;   /* Zentriert + Abstand */
+}
+
+.lifestyle-image {
+    width: 100%;           /* Nutzt die volle Breite des Wrappers */
+    max-width: 3200px;      /* Basisbreite (anpassbar) */
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.lifestyle-caption {
+    width: 100%;           /* Gleiche Breite wie Bild */
+    text-align: center;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    margin-top: 0.3rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+/* Dark Mode */
+[data-theme="dark"] .lifestyle-caption {
+    border-top-color: rgba(255,255,255,0.1);
+}
+
+
+/* Photo Grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.photo-item {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: scale(1.03);
+}
+
+/* Lightbox Styles */
+.lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+}
+
+#lightbox-image {
+    max-height: 80vh;
+    max-width: 90vw;
+    border-radius: 8px;
+}
+
+#lightbox-caption {
+    color: white;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .lightbox-content {
+        max-width: 95%;
+    }
+    
+    .close-btn {
+        top: -35px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+    .nav-controls {
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 1rem;
+    }
+}
+
+/* Accordion Styles passend zu deinem Design */
+.accordion-section {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    transition: border-color 0.3s;
+}
+
+[data-theme="dark"] .accordion-section {
+    border-bottom-color: #333;
+}
+
+.accordion-button {
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.7rem 0;
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: color 0.2s;
+}
+
+.accordion-button:hover,
+.accordion-button[aria-expanded="true"] {
+    color: var(--accent);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+    padding-left: 1rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.accordion-content.open {
+    max-height: 1000px; /* genug groß für Inhalt */
+}
+
+/* CV Modal Anpassungen */
+#cvModal .modal-content {
+    width: 90%;
+    max-width: 400px; /* Breiterer Dialog */
+    padding: 2.5rem;
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+#cvModal h3 {
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Close Button */
+#cvModal .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    background: none;
+    border: none;
+    z-index: 1001;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    width: auto; /* Überschreibt die 2rem aus deinem Code */
+    height: auto; /* Überschreibt die 2rem */
+}
+
+#cvModal .close-modal:hover {
+    transform: scale(1.2);
+    color: var(--accent);
+}
+
+
+#cvModal .topic-btn {
+    background: var(--navbar-bg); /* Statt Lila */
+    color: white !important; /* Überschreibt eventuelle andere Farben */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+#cvModal .topic-btn:hover {
+    background: var(--accent) !important;
+    color: white !important;
+    transform: translateY(-2px);
+}
+
+#cvModal .topic-btn:active {
+    transform: translateY(0);
+}
+
+/* Dark Mode Anpassung */
+[data-theme="dark"] #cvModal .topic-btn {
+    background: #2a2a2a;
+    color: #f0f0f0;
+}
+
+[data-theme="dark"] #cvModal .topic-btn:hover {
+    background: var(--accent);
+}
+
+#cvModal {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#cvModal .modal-content {
+    animation: slideUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 3rem 2rem 2rem; /* Mehr Platz oben für Close-Button */
+    position: relative;
+}
+
+@keyframes slideUp {
+    from { 
+        transform: translateY(20px);
+        opacity: 0; 
+    }
+    to { 
+        transform: translateY(0);
+        opacity: 1; 
+    }
+}
+
+@media (max-width: 480px) {
+    #cvModal .modal-content {
+        padding: 2rem 1.5rem;
+        width: 95%;
+    }
+    
+    .modal-buttons {
+        gap: 0.8rem;
+    }
+    
+    #cvModal .topic-btn {
+        padding: 0.7rem;
+        font-size: 0.95rem;
+    }
+}
+
+/* Optional: Sichtbarer Hintergrund für bessere Erkennbarkeit */
+#cvModal .close-modal {
+    background: rgba(0,0,0,0.1);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+[data-theme="dark"] #cvModal .close-modal {
+    background: rgba(255,255,255,0.1);
+}
+
+.cv-button{
+    color: white;
+}
+
+
+.legal-links {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.legal-links a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dashed currentColor;
+}
